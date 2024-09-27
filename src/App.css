@@ -1,0 +1,207 @@
+#app {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d2d2d;
+  padding: 8px 14px;
+}
+.navbar > a {
+  color: white;
+}
+
+.photo-holder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url("src/assets/cool-guy copy.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 52px;
+}
+
+input {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid #00000033;
+  width: 200px;
+}
+
+.suggestion-dropdown {
+  background: white;
+  width: 200px;
+  margin: 3px auto;
+  border: 1px solid #b2b2b2;
+}
+
+.suggestion-item {
+  padding: 4px;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+.loading-screen {
+  margin-top: 20vh;
+  color: white;
+}
+
+.loading-message {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.react-spinner {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  animation: logo-spin 6s linear infinite;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .react-spinner {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.learn-more {
+  width: 260px;
+  margin: 28px auto 0 auto;
+}
+.learn-more > a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.forecast p,
+.hero-forecast p {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 14px;
+  color: white;
+  margin: 0;
+  border-bottom: 2px solid #00000038;
+}
+
+.location-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hero-temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.hero-temp span {
+  font-size: 18px;
+}
+
+.emoji-holder {
+  font-size: 80px;
+  line-height: 0;
+}
+
+.week-forecast {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  background: white;
+  margin: 8px;
+  border-radius: 6px;
+  border: 1px solid #00000085;
+}
+
+.forecast {
+  margin: 0;
+  padding: 0 4px;
+}
+.forecast:not(:last-child) {
+  border-right: 1px solid #d7d7d7;
+}
+
+@media (min-width: 720px) {
+  .react-spinner {
+    height: 13em;
+  }
+
+  .loading-message {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 920px) {
+  h1 {
+    font-size: 100px;
+  }
+
+  .suggestion-dropdown {
+    width: 234px;
+  }
+
+  a:hover {
+    color: blue;
+  }
+
+  .suggestion-item {
+    cursor: pointer;
+  }
+  .suggestion-item:hover {
+    background: #8383ff;
+    color: white;
+  }
+
+  .loading-screen {
+    margin-top: 13vh;
+  }
+
+  .react-spinner:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .react-spinner.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+
+  .hero-forecast {
+    width: 400px;
+    margin: 12px auto;
+    border: 1px solid #ffffff85;
+    border-radius: 9px;
+  }
+
+  .week-forecast {
+    width: 462px;
+    margin: auto;
+  }
+
+  .forecast {
+    padding: 0 16px;
+  }
+}

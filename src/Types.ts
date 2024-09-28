@@ -22,6 +22,13 @@ export type DropdownStatus = {
   showDropdown: boolean
 };
 
+export type ForecastResponse = {
+  city: {},
+  cnt: number,
+  cod: string,
+  list: RawForecast[]
+};
+
 export type RawForecast = {
   dt_txt: string,
   weather: [{

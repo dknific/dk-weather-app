@@ -13,6 +13,7 @@ import {
 import {
   DailyForecast,
   DropdownStatus,
+  ForecastResponse,
   GeomapCityResult,
   RawForecast,
   SearchTerm
@@ -54,7 +55,7 @@ function App() {
 
       async function getStringCoords() {
         await getCoordsFromCityName(searchTerm.term)
-          .then(response => {
+          .then((response: GeomapCityResult[]) => {
             const newSugs = {
               ...dropdownStatus,
               showDropDown: true,
@@ -130,7 +131,7 @@ function App() {
     setSelectedCity(suggestion);
     setDropdownStatus({ ...dropdownStatus, showDropdown: false, results: [] });
     await getForecastFromCoords(suggestion.lat, suggestion.lon)
-      .then(response => {
+      .then((response: ForecastResponse) => {
         const rawForecasts: RawForecast[] = response.list.filter((fore: RawForecast) => {
           const dateToEvaluate = new Date(fore.dt_txt);
           return dateToEvaluate.getHours() === 15;

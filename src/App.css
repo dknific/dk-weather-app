@@ -19,15 +19,66 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-image: url("src/assets/cool-guy copy.png");
+  background-image: url("/cool-guy copy.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.svg-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.svg-holder p {
+  margin: 28px auto 0 auto;
+  border-bottom: 1px solid;
+  font-weight: bold;
+  color: #5d3838;
+  letter-spacing: 0.25px;
+}
+
+.svg-row-one {
+  display: flex;
+  align-items: center;
+  margin: 20px auto 10px auto;
+  width: 100px;
+  justify-content: space-evenly;
+}
+
+.typescript-svg,
+.react-svg {
+  height: 28px;
+  width: 28px;
+}
+.openweather-svg {
+  width: 86px;
+  height: 43px;
+}
+
+.typescript-svg rect,
+.react-svg path,
+.sun-path {
+  fill: #5d3838;
+}
+
 h1 {
   margin-bottom: 0;
   font-size: 52px;
+}
+
+.search-holder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
@@ -39,6 +90,8 @@ input {
 }
 
 .suggestion-dropdown {
+  position: absolute;
+  top: 40px;
   background: white;
   width: 200px;
   margin: 3px auto;
@@ -148,6 +201,9 @@ input {
 }
 
 @media (min-width: 720px) {
+  h1 {
+    font-size: 100px;
+  }
   .react-spinner {
     height: 13em;
   }
@@ -155,13 +211,27 @@ input {
   .loading-message {
     font-size: 32px;
   }
+
+  .svg-holder p {
+    font-size: 18px;
+  }
+
+  .svg-row-one {
+    width: 138px;
+  }
+
+  .typescript-svg,
+  .react-svg {
+    height: 36px;
+    width: 36px;
+  }
+  .openweather-svg {
+    width: 104px;
+    height: 50px;
+  }
 }
 
 @media (min-width: 920px) {
-  h1 {
-    font-size: 100px;
-  }
-
   .suggestion-dropdown {
     width: 234px;
   }

@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { DailyForecast, DropdownStatus, GeomapCityResult, RawForecast, SearchTerm } from './Types';
 import ReactLogo from './assets/react.svg';
+import SVGRenderer from './components/SvgRenderer';
 import Navbar from './components/Navbar';
 import {
   formatForecast,
@@ -145,38 +146,49 @@ function App() {
     <>
       <Navbar />
       {!isLoadingForecast && !forecast && (
-        <div>
+        <div className='home-screen'>
           <h1>Weather.</h1>
           <p>Select a result from the search dropdown.</p>
 
-          <input
-            type="text"
-            placeholder="Search city or zip code"
-            onChange={(e) => handleInputChange(e)}
-          />
+          <div className='search-holder'>
+            <input
+              type="text"
+              placeholder="Search city or zip code"
+              onChange={(e) => handleInputChange(e)}
+            />
 
-          {resultsNotFound && (
-            <div className='suggestion-dropdown'>
-              <div className='suggestion-item'>No Results</div>
+            {resultsNotFound && (
+              <div className='suggestion-dropdown'>
+                <div className='suggestion-item'>No Results</div>
+              </div>
+            )} 
+
+            {isSearching && (
+              <div className='suggestion-dropdown'>
+                <div className='suggestion-item'>Searching...</div>
+              </div>
+            )}
+
+            {hasResultsToDisplay && (
+              <div className='suggestion-dropdown'>
+                {dropdownStatus.results.map((res: GeomapCityResult) => (
+                  <div className='suggestion-item' onClick={async () => handleSuggestionClick(res)}>
+                    {formatSuggestionBox(res)}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="svg-holder">
+            <p>Powered by:</p>
+            <div className='svg-row-one'>
+            <SVGRenderer svgName='TYPESCRIPT' />
+            +
+            <SVGRenderer svgName='REACT' />
             </div>
-          )} 
-
-          {isSearching && (
-            <div className='suggestion-dropdown'>
-              <div className='suggestion-item'>Searching...</div>
-            </div>
-          )}
-
-          {hasResultsToDisplay && (
-            <div className='suggestion-dropdown'>
-              {dropdownStatus.results.map((res: GeomapCityResult) => (
-                <div className='suggestion-item' onClick={async () => handleSuggestionClick(res)}>
-                  {formatSuggestionBox(res)}
-                </div>
-              ))}
-            </div>
-          )}
-
+            <SVGRenderer svgName='OPEN_WEATHER' />
+          </div>
         </div>
       )}
 

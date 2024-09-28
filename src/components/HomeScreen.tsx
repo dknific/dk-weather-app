@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
 import SVGRenderer from './SvgRenderer';
-import { DropdownStatus, GeomapCityResult } from '../Types';
-import '../styles/HomeScreen.css';
 import SearchBar from './SearchBar';
+import { DropdownStatus, GeomapCityResult } from '../Types.ts';
+import '../styles/HomeScreen.css';
 
 type HomeScreenProps = {
   dropdownStatus: DropdownStatus,

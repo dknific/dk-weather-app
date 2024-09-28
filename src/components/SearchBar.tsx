@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import { formatSuggestionBox } from '../Methods';
-import { DropdownStatus, GeomapCityResult } from '../Types';
+import { formatSuggestionBox } from '../Methods.ts';
+import { DropdownStatus, GeomapCityResult } from '../Types.ts';
 import '../styles/SearchBar.css';
 
 type SearchBarProps = {

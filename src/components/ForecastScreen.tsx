@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect } from 'react';
 import SearchBar from './SearchBar';
-import { formatSuggestionBox } from '../Methods';
-import { DailyForecast, DropdownStatus, GeomapCityResult } from '../Types';
+import { formatSuggestionBox } from '../Methods.ts';
+import { DailyForecast, DropdownStatus, GeomapCityResult } from '../Types.ts';
 import '../styles/ForecastScreen.css';
 
 const RAIN_GRADIENT: string = 'linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%)';

@@ -9,14 +9,14 @@ import {
   getCoordsFromZip,
   getForecastFromCoords,
   isNumeric
-} from './Methods';
+} from './Methods.ts';
 import {
   DailyForecast,
   DropdownStatus,
   GeomapCityResult,
   RawForecast,
   SearchTerm
-} from './Types';
+} from './Types.ts';
 import './styles/App.css';
 
 const EMPTY_SEARCH_TERM: SearchTerm = {

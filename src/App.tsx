@@ -1,17 +1,23 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { DailyForecast, DropdownStatus, GeomapCityResult, RawForecast, SearchTerm } from './Types';
 import ReactLogo from './assets/react.svg';
-import SVGRenderer from './components/SvgRenderer';
 import Navbar from './components/Navbar';
+import HomeScreen from './components/HomeScreen';
+import ForecastScreen from './components/ForecastScreen';
 import {
   formatForecast,
-  formatSuggestionBox,
   getCoordsFromCityName,
   getCoordsFromZip,
   getForecastFromCoords,
   isNumeric
-} from './methods';
-import './App.css';
+} from './Methods';
+import {
+  DailyForecast,
+  DropdownStatus,
+  GeomapCityResult,
+  RawForecast,
+  SearchTerm
+} from './Types';
+import './styles/App.css';
 
 const EMPTY_SEARCH_TERM: SearchTerm = {
   term: '',
@@ -51,8 +57,11 @@ function App() {
           .then(response => {
             const newSugs = {
               ...dropdownStatus,
+              showDropDown: true,
               isLoading: false,
-              results: response };
+              results: response,
+              hasSearched: true,
+            };
             setDropdownStatus(newSugs);
           });
       }
@@ -95,6 +104,7 @@ function App() {
     }
   }, [searchTerm]);
 
+  // Handle user events:
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
     const userInput: string = e.target.value;
 
@@ -118,6 +128,7 @@ function App() {
   async function handleSuggestionClick(suggestion: GeomapCityResult) {
     setIsLoadingForecast(true);
     setSelectedCity(suggestion);
+    setDropdownStatus({ ...dropdownStatus, showDropdown: false, results: [] });
     await getForecastFromCoords(suggestion.lat, suggestion.lon)
       .then(response => {
         const rawForecasts: RawForecast[] = response.list.filter((fore: RawForecast) => {
@@ -131,65 +142,15 @@ function App() {
     setIsLoadingForecast(false);
   }
 
-  const isSearching: boolean = dropdownStatus.isLoading && dropdownStatus.showDropdown;
-  const resultsNotFound: boolean =
-    dropdownStatus.showDropdown &&
-    !dropdownStatus.isLoading &&
-    dropdownStatus.results.length === 0 &&
-    dropdownStatus.hasSearched;
-  const hasResultsToDisplay: boolean =
-    dropdownStatus.showDropdown &&
-    !dropdownStatus.isLoading &&
-    dropdownStatus.results.length > 0;
-
   return (
     <>
       <Navbar />
       {!isLoadingForecast && !forecast && (
-        <div className='home-screen'>
-          <h1>Weather.</h1>
-          <p>Select a result from the search dropdown.</p>
-
-          <div className='search-holder'>
-            <input
-              type="text"
-              placeholder="Search city or zip code"
-              onChange={(e) => handleInputChange(e)}
-            />
-
-            {resultsNotFound && (
-              <div className='suggestion-dropdown'>
-                <div className='suggestion-item'>No Results</div>
-              </div>
-            )} 
-
-            {isSearching && (
-              <div className='suggestion-dropdown'>
-                <div className='suggestion-item'>Searching...</div>
-              </div>
-            )}
-
-            {hasResultsToDisplay && (
-              <div className='suggestion-dropdown'>
-                {dropdownStatus.results.map((res: GeomapCityResult) => (
-                  <div className='suggestion-item' onClick={async () => handleSuggestionClick(res)}>
-                    {formatSuggestionBox(res)}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="svg-holder">
-            <p>Powered by:</p>
-            <div className='svg-row-one'>
-            <SVGRenderer svgName='TYPESCRIPT' />
-            +
-            <SVGRenderer svgName='REACT' />
-            </div>
-            <SVGRenderer svgName='OPEN_WEATHER' />
-          </div>
-        </div>
+        <HomeScreen
+          dropdownStatus={dropdownStatus}
+          handleInputChange={handleInputChange}
+          handleSuggestionClick={handleSuggestionClick}
+        />
       )}
 
       {isLoadingForecast && (
@@ -201,30 +162,13 @@ function App() {
       )}
 
       {!isLoadingForecast && forecast && selectedCity && (
-        <div>
-          
-          <div className='hero-forecast'>
-            <div>
-              <p className="location-name">{formatSuggestionBox(selectedCity)}</p>
-              <p>{forecast[0].date.toDateString()}</p>
-              <p className='hero-temp'>{forecast[0].temp}&deg;<span>F</span></p>
-            </div>
-            <div className='emoji-holder'><p>🌞</p></div>
-          </div>
-          <div className='week-forecast'>
-            {forecast.map((fore, index) => {
-              if (index > 0) {
-                return (
-                  <div className='forecast' key={index}>
-                    <p>{fore.date.toDateString().split(" ")[0]}</p>
-                    <p>🌞</p>
-                    <p>{fore.high}&deg;/{fore.low}&deg;</p>
-                  </div>
-                )
-              }
-            })}
-          </div>
-        </div>
+        <ForecastScreen
+          dailyForecasts={forecast}
+          dropdownStatus={dropdownStatus}
+          handleInputChange={handleInputChange}
+          handleSuggestionClick={handleSuggestionClick}
+          selectedCity={selectedCity}
+        />
       )}
     </>
   )

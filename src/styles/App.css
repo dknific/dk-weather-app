@@ -1,0 +1,65 @@
+#app {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loading-screen {
+  margin-top: 20vh;
+  color: white;
+}
+
+.loading-message {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.react-spinner {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  animation: logo-spin 6s linear infinite;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .react-spinner {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.learn-more {
+  width: 260px;
+  margin: 28px auto 0 auto;
+}
+.learn-more > a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+@media (min-width: 920px) {
+  a:hover {
+    color: blue;
+  }
+  
+  .loading-screen {
+    margin-top: 13vh;
+  }
+
+  .react-spinner:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .react-spinner.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+}

@@ -1,0 +1,96 @@
+.five-day-text {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 14px 8px 14px;
+  padding: 0;
+  text-align: left;
+}
+
+.forecast p,
+.hero-forecast p {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0 14px 14px 14px;
+  color: white;
+  margin: 0;
+  border-bottom: 2px solid #00000038;
+}
+
+.location-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hero-temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.hero-temp span {
+  font-size: 18px;
+}
+
+.emoji-holder {
+  font-size: 80px;
+  line-height: 0;
+}
+
+.five-day-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px 0;
+  background: white;
+  margin: 8px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 3px 1px #0000006b
+}
+
+.forecast-calendar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.forecast {
+  margin: 0;
+  padding: 0 4px;
+}
+
+@media (min-width: 920px) {
+  .forecast-screen {
+    max-width: 588px;
+    width: 80%;
+    margin: auto;
+  }
+  .hero-forecast {
+    width: 100%;
+    max-width: 700px;
+    margin: 22px auto 12px auto;
+    border: 1px solid #ffffff85;
+    border-radius: 9px;
+  }
+
+  .location-name {
+    font-size: 32px;
+  }
+
+  .emoji-holder {
+    font-size: 112px;
+  }
+
+  .five-day-forecast {
+    width: 462px;
+    margin: auto;
+  }
+
+  .forecast {
+    padding: 0 16px;
+  }
+}

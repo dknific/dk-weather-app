@@ -36,6 +36,7 @@ export default function ForecastScreen(props: ForecastScreenProps) {
   const { dailyForecasts, selectedCity } = props;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if ((dailyForecasts[0].weather !== 'Clear') && (dailyForecasts[0].weather !== 'Clouds')) {
       document.body.style.background = RAIN_GRADIENT;
     } else {

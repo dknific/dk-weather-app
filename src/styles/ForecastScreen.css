@@ -63,7 +63,14 @@
   padding: 0 4px;
 }
 
-@media (min-width: 920px) {
+.open-modal-text {
+  font-weight: bold;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+@media (min-width: 720px) {
   .forecast-screen {
     max-width: 588px;
     width: 80%;
@@ -92,5 +99,18 @@
 
   .forecast {
     padding: 0 16px;
+  }
+
+  .open-modal-text {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 924px) {
+  .open-modal-text {
+    cursor: pointer;
+  }
+  .open-modal-text:hover {
+    opacity: 0.7;
   }
 }

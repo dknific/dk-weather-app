@@ -45,8 +45,8 @@ export default function SearchBar(props: SearchBarProps) {
 
         {hasResultsToDisplay && (
           <div className='suggestion-dropdown'>
-            {dropdownStatus.results.map((res: GeomapCityResult) => (
-              <div className='suggestion-item' onClick={async () => handleSuggestionClick(res)}>
+            {dropdownStatus.results.map((res: GeomapCityResult, index: number) => (
+              <div key={index} className='suggestion-item' onClick={async () => handleSuggestionClick(res)}>
                 {formatSuggestionBox(res)}
               </div>
             ))}

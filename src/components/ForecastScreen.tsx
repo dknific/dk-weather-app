@@ -1,4 +1,5 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import HelpModal from './HelpModal.tsx';
 import SearchBar from './SearchBar';
 import { formatSuggestionBox } from '../Methods.ts';
 import { DailyForecast, DropdownStatus, GeomapCityResult } from '../Types.ts';
@@ -34,6 +35,8 @@ type ForecastScreenProps = {
 
 export default function ForecastScreen(props: ForecastScreenProps) {
   const { dailyForecasts, selectedCity } = props;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,6 +81,12 @@ export default function ForecastScreen(props: ForecastScreenProps) {
           })}
         </div>
       </div>
+
+      {isModalOpen && (
+        <HelpModal closeModal={() => setIsModalOpen(false)} />
+      )}
+
+      <p className='open-modal-text' onClick={() => setIsModalOpen(true)}>Weather results seem off?</p>
     </div>
   );
 }

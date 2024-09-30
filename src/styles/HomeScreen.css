@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+h1 {
+  margin: 62px auto 0 auto;
+  font-size: 52px;
+}
+
 .instructions {
   margin: 0 auto 24px auto;
 }
@@ -44,11 +49,6 @@
 .react-svg path,
 .sun-path {
   fill: #5d3838;
-}
-
-h1 {
-  margin-bottom: 0;
-  font-size: 52px;
 }
 
 @media (min-width: 720px) {

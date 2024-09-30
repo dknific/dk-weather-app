@@ -5,7 +5,7 @@
   align-items: center;
 }
 .search-holder.forecast-bar {
-  margin: 8px;
+  margin: 62px 8px 8px 8px;
 }
 
 input {
@@ -24,7 +24,7 @@ input {
   margin: 3px auto;
   border: 1px solid #b2b2b2;
   overflow: scroll;
-  height: 132px;
+  max-height: 132px;
 }
 
 .suggestion-item {
@@ -39,11 +39,12 @@ input {
   }
 
   .search-holder.forecast-bar {
-    margin: 16px;
+    margin: 68px 16px 16px 16px;
   }
 }
 
 @media (min-width: 920px) {
+  
   .suggestion-dropdown {
     width: 234px;
   }

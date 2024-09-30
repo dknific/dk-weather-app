@@ -1,15 +1,24 @@
 .navbar {
-  position: sticky;
+  position: absolute;
   top: 0;
+  width: 100%;
   z-index: 98;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #2d2d2d;
-  padding: 8px 14px;
+  padding: 8px 0;
 }
 .navbar > a {
   color: white;
+}
+
+.portfolio-link {
+  margin-left: 12px;
+}
+
+.code-link {
+  margin-right: 12px;
 }
 
 .photo-holder {

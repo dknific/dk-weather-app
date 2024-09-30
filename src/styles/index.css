@@ -24,6 +24,7 @@ body {
   min-width: 320px;
   height: 100vh;
   max-height: 100vh;
+  overflow-y: hidden;
 }
 
 h1 {

@@ -54,6 +54,7 @@ h1 {
 @media (min-width: 720px) {
   h1 {
     font-size: 100px;
+    margin: 82px auto 0 auto;
   }
   .react-spinner {
     height: 13em;

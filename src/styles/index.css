@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -24,7 +28,7 @@ body {
   min-width: 320px;
   height: 100vh;
   max-height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 h1 {

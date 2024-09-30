@@ -23,6 +23,7 @@ body {
   display: flex;
   min-width: 320px;
   height: 100vh;
+  max-height: 100vh;
 }
 
 h1 {

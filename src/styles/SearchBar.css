@@ -23,6 +23,8 @@ input {
   width: 220px;
   margin: 3px auto;
   border: 1px solid #b2b2b2;
+  overflow: scroll;
+  height: 132px;
 }
 
 .suggestion-item {
@@ -31,6 +33,11 @@ input {
 }
 
 @media (min-width: 720px) {
+  .suggestion-dropdown {
+    overflow: visible;
+    height: unset;
+  }
+
   .search-holder.forecast-bar {
     margin: 16px;
   }

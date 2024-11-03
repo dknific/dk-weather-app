@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# dk-weather-app
+Use React.js, TypeScript, and the [OpenWeatherMap API](https://openweathermap.org/api) to get live 5-day forecasts.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
+To try out the app, [click here!](https://www.daveyknific.com/weather/index.html)
 
-Currently, two official plugins are available:
+## To Run Locally:
+*This project uses [Vite](https://vite.dev/guide/why.html) for building and developing.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run locally, you will need a valid API key from OpenWeatherMap.
 
-## Expanding the ESLint configuration
+### Providing an API Key:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Create a file called `.env` in the root level of the repo, then copy the contents of the `.env.example` file into it, replacing the example text with your secret API key. The `.gitignore` will make sure you don't accidentally commit your API key in this file.
 
-- Configure the top-level `parserOptions` property like this:
+### Install Dependencies and Run:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Once you've set your API key, navigate to the root directory of this project and run the following commands:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    npm install   // installs dependencies
+    npx vite      // runs dev server
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Build for Production:
+Run `npx vite build` to build a production-ready app.

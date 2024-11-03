@@ -1,7 +1,7 @@
 import { DailyForecast, GeomapCityResult, RawForecast } from './Types';
 
 // API Methods:
-const API_KEY = 'a5cf09098e6e9a89c8dcffddbe7b5e8c';
+const API_KEY = import.meta.env.VITE_API_KEY;
 const OWM_API_URL = 'https://api.openweathermap.org';
 
 export async function getCoordsFromZip(input: string) {

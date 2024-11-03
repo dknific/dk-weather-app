@@ -6,7 +6,7 @@ export default function Navbar() {
       <a className='portfolio-link' href="https://www.daveyknific.com">
         <div className='photo-holder'></div>
       </a>
-      <a className='code-link' href="https://www.github.com/dknific" target="_blank">View Source Code</a>
+      <a className='code-link' href="https://www.github.com/dknific/dk-weather-app" target="_blank">View Source Code</a>
     </div>
   );
 }
